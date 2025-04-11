@@ -3,7 +3,10 @@ import numpy as np
 import cv2
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import classification_report, accuracy_score, confusion_matrix
+from sklearn.metrics import (
+    accuracy_score, precision_score, recall_score, f1_score,
+    classification_report, confusion_matrix
+)
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
@@ -54,31 +57,49 @@ for metric in distance_metrics:
         knn = KNeighborsClassifier(n_neighbors=k, metric=metric)
         knn.fit(X_train, y_train)
         y_pred = knn.predict(X_test)
-        acc = accuracy_score(y_test, y_pred)
-        results.append({'K': k, 'Metric': metric, 'Accuracy': acc})
-        print(f"Metric: {metric}, K: {k}, Accuracy: {acc:.4f}")
 
-# === Plot accuracy for each setting ===
+        acc = accuracy_score(y_test, y_pred)
+        prec = precision_score(y_test, y_pred)
+        rec = recall_score(y_test, y_pred)
+        f1 = f1_score(y_test, y_pred)
+
+        results.append({
+            'K': k,
+            'Metric': metric,
+            'Accuracy': acc,
+            'Precision': prec,
+            'Recall': rec,
+            'F1': f1
+        })
+
+        print(f"Metric: {metric}, K: {k} → Accuracy: {acc:.4f}, Precision: {prec:.4f}, Recall: {rec:.4f}, F1: {f1:.4f}")
+
+# === Convert to DataFrame ===
 results_df = pd.DataFrame(results)
 
-plt.figure(figsize=(10, 6))
-for metric in distance_metrics:
-    subset = results_df[results_df['Metric'] == metric]
-    plt.plot(subset['K'], subset['Accuracy'], marker='o', label=f"{metric.title()} Distance")
-
-plt.xlabel("Number of Neighbors (K)")
-plt.ylabel("Accuracy")
-plt.title("K-NN Accuracy vs K for Different Distance Metrics")
-plt.legend()
-plt.grid(True)
+# === Plot each metric ===
+metrics = ['Accuracy', 'Precision', 'Recall', 'F1']
+plt.figure(figsize=(12, 8))
+for i, metric in enumerate(metrics):
+    plt.subplot(2, 2, i+1)
+    for dist in distance_metrics:
+        subset = results_df[results_df['Metric'] == dist]
+        plt.plot(subset['K'], subset[metric], marker='o', label=dist.title())
+    plt.title(metric)
+    plt.xlabel("K")
+    plt.ylabel(metric)
+    plt.grid(True)
+    plt.legend()
+plt.tight_layout()
+plt.suptitle("K-NN Performance Metrics vs K", y=1.02, fontsize=16)
 plt.show()
 
-# === Final model for detailed evaluation (e.g., best config) ===
-best_result = results_df.sort_values(by="Accuracy", ascending=False).iloc[0]
+# === Final model: best F1-score ===
+best_result = results_df.sort_values(by="F1", ascending=False).iloc[0]
 best_k = best_result["K"]
 best_metric = best_result["Metric"]
 
-print(f"\nBest config → Metric: {best_metric}, K: {best_k}")
+print(f"\nBest config → Metric: {best_metric}, K: {best_k} (F1: {best_result['F1']:.4f})")
 
 knn = KNeighborsClassifier(n_neighbors=best_k, metric=best_metric)
 knn.fit(X_train, y_train)
@@ -113,4 +134,5 @@ def show_predictions(images, true_labels, predicted_labels, num=6):
     plt.show()
 
 show_predictions(X_test, y_test, y_pred)
+
 
