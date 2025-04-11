@@ -77,22 +77,7 @@ for metric in distance_metrics:
 # === Convert to DataFrame ===
 results_df = pd.DataFrame(results)
 
-# === Plot each metric ===
-metrics = ['Accuracy', 'Precision', 'Recall', 'F1']
-plt.figure(figsize=(12, 8))
-for i, metric in enumerate(metrics):
-    plt.subplot(2, 2, i+1)
-    for dist in distance_metrics:
-        subset = results_df[results_df['Metric'] == dist]
-        plt.plot(subset['K'], subset[metric], marker='o', label=dist.title())
-    plt.title(metric)
-    plt.xlabel("K")
-    plt.ylabel(metric)
-    plt.grid(True)
-    plt.legend()
-plt.tight_layout()
-plt.suptitle("K-NN Performance Metrics vs K", y=1.02, fontsize=16)
-plt.show()
+
 
 # === Final model: best F1-score ===
 best_result = results_df.sort_values(by="F1", ascending=False).iloc[0]
@@ -109,30 +94,6 @@ print("\n=== Classification Report ===")
 print(classification_report(y_test, y_pred))
 print("Accuracy:", accuracy_score(y_test, y_pred))
 
-# === Confusion Matrix ===
-cm = confusion_matrix(y_test, y_pred)
-plt.figure(figsize=(6, 4))
-sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',
-            xticklabels=["Unpleasant (0)", "Pleasant (1)"],
-            yticklabels=["Unpleasant (0)", "Pleasant (1)"])
-plt.title("Confusion Matrix")
-plt.xlabel("Predicted")
-plt.ylabel("Actual")
-plt.show()
 
-# === Show sample predictions ===
-def show_predictions(images, true_labels, predicted_labels, num=6):
-    plt.figure(figsize=(12, 6))
-    for i in range(num):
-        index = i
-        img = images[index].reshape(IMAGE_SIZE)
-        plt.subplot(2, num//2, i+1)
-        plt.imshow(img, cmap='gray')
-        plt.title(f"True: {true_labels[index]} | Pred: {predicted_labels[index]}")
-        plt.axis('off')
-    plt.suptitle("Sample Test Predictions")
-    plt.show()
-
-show_predictions(X_test, y_test, y_pred)
 
 
