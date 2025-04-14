@@ -1,0 +1,96 @@
+Hidden Layers: [512] | Activation: relu | Optimizer: adam
+Train Accuracy: 0.9094, Validation Accuracy: 0.8440
+Test predictions completed.
+------------------------------------------------------------
+Hidden Layers: [512] | Activation: relu | Optimizer: sgd
+Train Accuracy: 0.6369, Validation Accuracy: 0.6262
+Test predictions completed.
+------------------------------------------------------------
+Hidden Layers: [512] | Activation: sigmoid | Optimizer: adam
+Train Accuracy: 0.8353, Validation Accuracy: 0.8033
+Test predictions completed.
+------------------------------------------------------------
+Hidden Layers: [512] | Activation: sigmoid | Optimizer: sgd
+Train Accuracy: 0.5318, Validation Accuracy: 0.5368
+Test predictions completed.
+------------------------------------------------------------
+Hidden Layers: [512] | Activation: tanh | Optimizer: adam
+Train Accuracy: 0.8729, Validation Accuracy: 0.8166
+Test predictions completed.
+------------------------------------------------------------
+Hidden Layers: [512] | Activation: tanh | Optimizer: sgd
+Train Accuracy: 0.6469, Validation Accuracy: 0.6340
+Test predictions completed.
+------------------------------------------------------------
+Hidden Layers: [512, 256] | Activation: relu | Optimizer: adam
+Train Accuracy: 0.9420, Validation Accuracy: 0.8448
+Test predictions completed.
+------------------------------------------------------------
+Hidden Layers: [512, 256] | Activation: relu | Optimizer: sgd
+Train Accuracy: 0.5857, Validation Accuracy: 0.5878
+Test predictions completed.
+------------------------------------------------------------
+Hidden Layers: [512, 256] | Activation: sigmoid | Optimizer: adam
+Train Accuracy: 0.8649, Validation Accuracy: 0.8049
+Test predictions completed.
+------------------------------------------------------------
+Hidden Layers: [512, 256] | Activation: sigmoid | Optimizer: sgd
+Train Accuracy: 0.5316, Validation Accuracy: 0.5353
+Test predictions completed.
+------------------------------------------------------------
+Hidden Layers: [512, 256] | Activation: tanh | Optimizer: adam
+Train Accuracy: 0.9024, Validation Accuracy: 0.8331
+Test predictions completed.
+------------------------------------------------------------
+Hidden Layers: [512, 256] | Activation: tanh | Optimizer: sgd
+Train Accuracy: 0.6108, Validation Accuracy: 0.6176
+Test predictions completed.
+------------------------------------------------------------
+Hidden Layers: [512, 256, 128] | Activation: relu | Optimizer: adam
+Train Accuracy: 0.9286, Validation Accuracy: 0.8464
+Test predictions completed.
+------------------------------------------------------------
+Hidden Layers: [512, 256, 128] | Activation: relu | Optimizer: sgd
+Train Accuracy: 0.5629, Validation Accuracy: 0.5776
+Test predictions completed.
+------------------------------------------------------------
+Hidden Layers: [512, 256, 128] | Activation: sigmoid | Optimizer: adam
+Train Accuracy: 0.8786, Validation Accuracy: 0.8190
+Test predictions completed.
+------------------------------------------------------------
+Hidden Layers: [512, 256, 128] | Activation: sigmoid | Optimizer: sgd
+Train Accuracy: 0.5316, Validation Accuracy: 0.5353
+Test predictions completed.
+------------------------------------------------------------
+Hidden Layers: [512, 256, 128] | Activation: tanh | Optimizer: adam
+Train Accuracy: 0.9220, Validation Accuracy: 0.8315
+Test predictions completed.
+------------------------------------------------------------
+Hidden Layers: [512, 256, 128] | Activation: tanh | Optimizer: sgd
+Train Accuracy: 0.5337, Validation Accuracy: 0.5549
+Test predictions completed.
+------------------------------------------------------------
+Hidden Layers: [512, 256, 128, 64] | Activation: relu | Optimizer: adam
+Train Accuracy: 0.9286, Validation Accuracy: 0.8456
+Test predictions completed.
+------------------------------------------------------------
+Hidden Layers: [512, 256, 128, 64] | Activation: relu | Optimizer: sgd
+Train Accuracy: 0.5316, Validation Accuracy: 0.5353
+Test predictions completed.
+------------------------------------------------------------
+Hidden Layers: [512, 256, 128, 64] | Activation: sigmoid | Optimizer: adam
+Train Accuracy: 0.8722, Validation Accuracy: 0.8260
+Test predictions completed.
+------------------------------------------------------------
+Hidden Layers: [512, 256, 128, 64] | Activation: sigmoid | Optimizer: sgd
+Train Accuracy: 0.5316, Validation Accuracy: 0.5353
+Test predictions completed.
+------------------------------------------------------------
+Hidden Layers: [512, 256, 128, 64] | Activation: tanh | Optimizer: adam
+Train Accuracy: 0.9335, Validation Accuracy: 0.8487
+Test predictions completed.
+------------------------------------------------------------
+Hidden Layers: [512, 256, 128, 64] | Activation: tanh | Optimizer: sgd
+Train Accuracy: 0.5320, Validation Accuracy: 0.5353
+Test predictions completed.
+------------------------------------------------------------
