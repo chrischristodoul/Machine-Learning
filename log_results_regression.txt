@@ -1,0 +1,5 @@
+C=0.01 | Train Acc: 0.8788 | Val Acc: 0.7845
+C=0.1 | Train Acc: 0.9555 | Val Acc: 0.7594
+C=1 | Train Acc: 0.9990 | Val Acc: 0.7375
+C=10 | Train Acc: 1.0000 | Val Acc: 0.7273
+C=100 | Train Acc: 1.0000 | Val Acc: 0.7343
