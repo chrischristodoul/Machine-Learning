@@ -71,6 +71,12 @@ Implement and study a CNN-based classifier that works directly on images:
 These metrics should be calculated on the training set and included in your final report.
 
 ---
+## How to Run
+All implementations are provided as individual **Python 3** scripts.  
+To run each model, use the following command in your terminal:
+
+    ```bash
+    python3 filename.py
 
 ## Deliverables
 - Well-documented code for each classifier.
@@ -79,6 +85,13 @@ These metrics should be calculated on the training set and included in your fina
 - Submission file with your final predictions and evaluation metrics.
 
 ---
+
+
+## Contact
+If you have any questions or suggestions, feel free to reach out:
+
+- **Name:** Christos
+- **Email:** christodoulchrestos@gmail.com
 
 Happy coding and good luck!
 
